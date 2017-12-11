@@ -6,7 +6,8 @@ import Annotation from './Components/Annotation/Annotation';
 
 import * as actionTypes from './store/actions';
 
-import AnnotatorLib from './AnnotatorLib';
+//import AnnotatorLib from './AnnotatorLib';
+import Annotate from './core/Annotate/Annotate';
 
 class App extends Component {
 
@@ -14,14 +15,10 @@ class App extends Component {
       nav: true            
   }
 
-  componentDidMount() {     
-    let annotatorLib = new AnnotatorLib();
-    let mapAnnotationEventsToDispatch = ['onAddedAnnotation','onDeletedAnnotation','onUpdatedAnnotation'];
-    mapAnnotationEventsToDispatch.map((event) => {
-      return annotatorLib[event] = this.props[event];
-    });
-    annotatorLib.annotatorLib = this.annotationContainer;     
-    annotatorLib.start();    
+  componentDidMount() { 
+    let annotate = new Annotate(this.props);
+    annotate.annotationContainer = this.annotationContainer;
+    annotate.start();    
   }
 
   render() {
