@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Grid , Row , Col , Panel} from 'react-bootstrap';
 
 class Annotation extends Component {
     

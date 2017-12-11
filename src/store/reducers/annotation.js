@@ -26,8 +26,10 @@ const reducer = ( state = initialState, action ) => {
                 ...state,
                 annotations: state.annotations.map(annotation => annotation.id === action.annotationData.id ? action.annotationData : annotation)
             }
+        default:            
+            return {...state}    
     }
-    return state;
+    //return state;
 };
 
 export default reducer;
