@@ -6,10 +6,15 @@ import Annotation from './Components/Annotation/Annotation';
 
 import * as actionTypes from './store/actions';
 
+import AnnotatorLib from './AnnotatorLib';
+
 import './App.css';
 
 let jQuery = require('jquery');
 let annotator = require('annotator');
+
+
+
 
 
 class App extends Component {
@@ -20,7 +25,9 @@ class App extends Component {
 
   componentDidMount() {
     this.jQuery = jQuery;
-    let app = new annotator.App();    
+    //let app = new annotator.App();
+    let annotatorLib = new AnnotatorLib();
+    let app = annotatorLib.app;    
     let onAddedAnnotationRef = this.props.onAddedAnnotation;
     let onDeletedAnnotationRef = this.props.onDeletedAnnotation; 
     let onUpdatedAnnotationRef = this.props.onUpdatedAnnotation; 
