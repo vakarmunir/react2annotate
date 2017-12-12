@@ -1,9 +1,10 @@
 /package-lock.json
-/node_modules/# See https://help.github.com/ignore-files/ for more about ignoring files.
-/annotatorjs-api/node_modules/# See https://help.github.com/ignore-files/ for more about ignoring files.
+/node_modules/
+/annotatorjs-api/node_modules/
 
 # dependencies
 /node_modules
+
 
 # testing
 /coverage
