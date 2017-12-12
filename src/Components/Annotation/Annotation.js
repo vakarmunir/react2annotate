@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Annotation extends Component {
-    
-    render () {
+let Annotation = (props) => {    
         return (
             <div className="Annotations">                
-                <center><i><h5>"{this.props.quote}"</h5></i></center>
-                <p><strong>Comments:</strong> {this.props.text}</p>                 
+                <center><i><h5>"{props.quote}"</h5></i></center>
+                <p><strong>Comments:</strong> {props.text}</p>                 
             </div>
-        );
-    }
+        );    
 }
 
 export default Annotation;
