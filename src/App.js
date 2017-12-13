@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Pdf from './Components/Pdf/Pdf';
-import {Grid , Row , Col , Panel , Well , Button , ButtonToolbar , Alert} from 'react-bootstrap';
-import Annotation from './Components/Annotation/Annotation';
+import {Grid , Row , Col , Panel , Button , ButtonToolbar , Alert} from 'react-bootstrap';
+import AnnotationsList from './Components/Annotation/AnnotationsList';
 
 import * as actionTypes from './store/actions';
 
@@ -58,19 +58,12 @@ class App extends Component {
                 ) :
                   (
                     <Pdf content={pdfUrl} />
-                  )}                
+                  )}
+
               </Panel>              
             </Col>
-            <Col xs={6} md={3}>                             
-              <div className="Annotations">                
-                  <Panel header="Annotations" bsStyle="primary">              
-                    {this.props.annotations.map(annotation => (
-                        <Well key={annotation.id}>                       
-                            <Annotation key={annotation.id} quote={annotation.quote} text={annotation.text}/>  
-                        </Well>                  
-                    ))}              
-                  </Panel> 
-              </div>                                            
+            <Col xs={6} md={3}>                                        
+              <AnnotationsList />
             </Col>
           </Row>
         </Grid>
