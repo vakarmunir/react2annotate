@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 let annotator = require('annotator');
 
 export default class AnnotatorLib{
@@ -10,7 +11,7 @@ export default class AnnotatorLib{
     }
 
     start = () => {
-        this.app.include( annotator.ui.main , {element : this.annotationContainer} );
+        this.app.include( annotator.ui.main , {element : ReactDOM.findDOMNode(this.annotationContainer)} );
         this.app.include((options) => {
             return {
                 annotationCreated: (annotation) => {

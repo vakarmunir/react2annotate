@@ -3,10 +3,7 @@ import { connect } from 'react-redux'
 import Pdf from './Components/Pdf/Pdf';
 import {Grid , Row , Col , Panel , Button , ButtonToolbar , Alert} from 'react-bootstrap';
 import AnnotationsList from './Components/Annotation/AnnotationsList';
-
 import * as actionTypes from './store/actions';
-
-//import AnnotatorLib from './AnnotatorLib';
 import Annotate from './core/Annotate/Annotate';
 
 class App extends Component {
@@ -16,8 +13,8 @@ class App extends Component {
   }
 
   componentDidMount() { 
-    let annotate = new Annotate(this.props);
-    annotate.annotationContainer = this.annotationContainer;
+    let annotate = new Annotate(this.props);    
+    annotate.setContentContainer(this.annotationContainer);
     annotate.start();    
   }
 
@@ -27,8 +24,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        
-        <div id="annotationContainer" ref={annotationContainer => this.annotationContainer = annotationContainer}>
+                
         <center><h1>React HTML / PDF Annotation</h1></center>
         
         <Grid>
@@ -49,8 +45,8 @@ class App extends Component {
           </Alert>
           <p>&nbsp;</p>
           <Row>            
-            <Col xs={12} md={9}>
-              <Panel>                                  
+            <Col xs={12} md={9}>                     
+              <Panel id="annotationContainer" ref={annotationContainer => this.annotationContainer = annotationContainer}>                                  
                 {this.state.nav ? (
                   <div>
                     <div dangerouslySetInnerHTML={{ __html : htmlContent }} />                    
@@ -67,7 +63,7 @@ class App extends Component {
             </Col>
           </Row>
         </Grid>
-        </div>
+        
         
       </div>
     );

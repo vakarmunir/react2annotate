@@ -7,9 +7,12 @@ export default class Annotate{
     mapAnnotationEventsToDispatch.map((event) => {
       return this.annotatorLib[event] = props[event];
     });
-    this.annotatorLib.annotationContainer = this.annotationContainer;             
+                     
   }
-  start = () => {
+  setContentContainer = (annotationContainer) => {
+    this.annotatorLib.annotationContainer = annotationContainer;
+  }
+  start = () => {    
     this.annotatorLib.start();
   }
 }
