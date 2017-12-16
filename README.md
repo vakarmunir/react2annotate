@@ -6,4 +6,5 @@ Web based highlight annotation for HTML and PDF content using React and Redux
  - Make sure you have Node.js installed
  - Run the following commands:
 	 - `npm install`
-	 - `npm start`
+	 - `yarn install`
+	 - `yarn start`
