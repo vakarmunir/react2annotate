@@ -23,8 +23,6 @@ export default class ContentPdf extends Component {
         this.setState({ numPages });
     }
 
-
-
     render() {
         const { numPages } = this.state;
 
@@ -37,7 +35,7 @@ export default class ContentPdf extends Component {
                     >
                         {[...Array(numPages)].map((e, i) => <Page key={i} pageNumber={i + 1} />)}
 
-                    </Document>
+                    </Document>                    
                 </div>
             </div>
         );
