@@ -25,11 +25,11 @@ export default class AnnotatorLib{
                 }
             };
         });        
-         /*
-        **** Here we can do server-side stuff *****
-        app.include(annotator.storage.http, {
+        
+        /**** Here we can do server-side stuff *****/
+        this.app.include(annotator.storage.http, {
             prefix: 'http://localhost:3001/api'
-        });*/
+        });
         this.app.start();
     }
 
