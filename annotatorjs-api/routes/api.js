@@ -6,7 +6,7 @@ router.use(cors());
 
 /* AnnotationJS API end-points */
 router.post('/annotations', function(req, res, next) {
-  res.json( {msg: 'API respond with a resource'} );  
+  res.json( {msg: req.body} );  
 });
 
 module.exports = router;

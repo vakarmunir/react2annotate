@@ -12,6 +12,12 @@ export default class AnnotatorLib{
 
     start = () => {
         this.app.include( annotator.ui.main , {element : ReactDOM.findDOMNode(this.annotationContainer)} );
+        
+        /**** Here we can do server-side stuff *****/
+        /*this.app.include(annotator.storage.http, {
+            prefix: 'http://localhost:3001/api'
+        });*/
+        console.log('app = ' , this.app);
         this.app.include((options) => {
             return {
                 annotationCreated: (annotation) => {
@@ -26,10 +32,7 @@ export default class AnnotatorLib{
             };
         });        
         
-        /**** Here we can do server-side stuff *****/
-        this.app.include(annotator.storage.http, {
-            prefix: 'http://localhost:3001/api'
-        });
+        
         this.app.start();
     }
 
